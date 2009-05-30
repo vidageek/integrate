@@ -6,6 +6,7 @@
 	<version>1.0-SNAPSHOT</version>
 	<name>CI</name>
 	<packaging>jar</packaging>
+
 	<organization>
 		<name>VidaGeek.net</name>
 		<url>http://vidageek.net</url>
@@ -21,17 +22,19 @@
 	
 	<dependencies>
 		<dependency>
-    		<groupId>com.svnkit</groupId>
-    		<artifactId>svnkit</artifactId>
-    		<version>1.1.0</version>
-		</dependency>
-		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.5</version>
 			<scope>test</scope>
 		</dependency>
+		
+		<dependency>
+			<groupId>net.vidageek</groupId>
+			<artifactId>fs</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
+
 	<build>
 		<plugins>
 			<plugin>
