@@ -1,7 +1,7 @@
 package net.vidageek.integrate.scm;
 
+import net.vidageek.fs.Folder;
 import net.vidageek.integrate.DomainObject;
-import net.vidageek.integrate.structure.Folder;
 
 final public class Repository implements DomainObject {
 

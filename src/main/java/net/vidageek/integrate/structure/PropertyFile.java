@@ -1,23 +1,21 @@
 package net.vidageek.integrate.structure;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
+import net.vidageek.fs.file.GenericFile;
 import net.vidageek.integrate.DomainObject;
 
-final public class PropertyFile {
+final public class PropertyFile extends GenericFile {
 
-    private final File propertyFile;
-
-    public PropertyFile(final Folder folder, final String fileName) {
-        propertyFile = folder.createFile(fileName);
+    public PropertyFile(final String configFile) {
+        super(new java.io.File(configFile));
     }
 
     public PropertyFile addProperty(final PropertyKey key, final DomainObject object) {
         try {
 
-            PrintWriter writer = new PrintWriter(propertyFile);
+            PrintWriter writer = new PrintWriter(toJavaFile());
             writer.append(key.asString() + "=" + object.asString());
             writer.flush();
             writer.close();
@@ -29,7 +27,7 @@ final public class PropertyFile {
     }
 
     private String asString() {
-        return propertyFile.getAbsolutePath();
+        return getAbsolutePath();
     }
 
 }

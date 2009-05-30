@@ -1,6 +1,7 @@
 package net.vidageek.integrate.user;
 
 import junit.framework.Assert;
+import net.vidageek.fs.Folder;
 import net.vidageek.integrate.Name;
 import net.vidageek.integrate.Password;
 import net.vidageek.integrate.Project;
@@ -9,7 +10,6 @@ import net.vidageek.integrate.scm.Repository;
 import net.vidageek.integrate.scm.RepositoryURL;
 import net.vidageek.integrate.scm.SCM;
 import net.vidageek.integrate.scm.User;
-import net.vidageek.integrate.structure.Folder;
 
 import org.junit.Before;
 import org.junit.Test;

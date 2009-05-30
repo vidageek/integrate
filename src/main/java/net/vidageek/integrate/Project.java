@@ -1,7 +1,7 @@
 package net.vidageek.integrate;
 
+import net.vidageek.fs.Folder;
 import net.vidageek.integrate.scm.Repository;
-import net.vidageek.integrate.structure.Folder;
 import net.vidageek.integrate.structure.PropertyFile;
 import net.vidageek.integrate.structure.PropertyKey;
 
@@ -18,20 +18,26 @@ final public class Project {
 
     public Folder createFolderStructure(final Folder rootFolder) {
 
-        Folder projectFolder = new Folder(rootFolder, name());
+        Folder projectFolder = rootFolder.openFolder(name().asString());
 
-        new PropertyFile(projectFolder, CONFIG_FILE).addProperty(new PropertyKey("url"), repository).addProperty(
-                new PropertyKey("user"), repository.user().name()).addProperty(new PropertyKey("password"),
-                repository.user().password()).addProperty(new PropertyKey("build.command"), buildCommand());
+        projectFolder
+                     .openFile(new PropertyFile(CONFIG_FILE))
+                     .addProperty(new PropertyKey("url"), repository)
+                     .addProperty(new PropertyKey("user"), repository.user().name())
+                     .addProperty(new PropertyKey("password"), repository.user().password())
+                     .addProperty(new PropertyKey("build.command"), buildCommand())
+                     .apply();
 
-        new Folder(projectFolder, new Name("work"));
+        projectFolder.apply();
+
+        projectFolder.openFolder("work").apply();
 
         return projectFolder;
 
     }
 
     public boolean existsOn(final Folder rootFolder) {
-        return rootFolder.containsFolderNamed(name().asString());
+        return rootFolder.openFolder(name().asString()).exists();
     }
 
     public Name name() {

@@ -1,6 +1,6 @@
 package net.vidageek.integrate.scm;
 
-import net.vidageek.integrate.structure.Folder;
+import net.vidageek.fs.Folder;
 
 public interface SCM {
 

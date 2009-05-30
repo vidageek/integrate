@@ -1,6 +1,6 @@
 package net.vidageek.integrate;
 
-import net.vidageek.integrate.structure.Folder;
+import net.vidageek.fs.Folder;
 import net.vidageek.integrate.user.Tell;
 
 final public class ContinuousIntegrationManager {
